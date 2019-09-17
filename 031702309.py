@@ -59,10 +59,6 @@ def five_address(ob):          #ob为一个字符串
             d["地址"][3] = address[:(i+2)]
             d["地址"][4] = address[(i+2):]
             break
-        elif address[i]=="街" :
-            d["地址"][3] = address[:(i+1)]
-            d["地址"][4] = address[(i+1):]
-            break
         elif i>=(len(address)-1) :
             d["地址"][4] = address
             break
@@ -73,6 +69,7 @@ def five_address(ob):          #ob为一个字符串
 def seven_address(ob):
     ob = five_address(ob)
     d = ob['地址'][4]
+    print(d)
     i = 0
     while 1:                      #查找街|路|巷
         if(d[i]=="路"or d[i]=='巷' or d[i]=='街'):
