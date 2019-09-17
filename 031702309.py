@@ -33,7 +33,7 @@ def five_address(ob):          #ob为一个字符串
     d["手机"] = num[i]
     ob = re.sub(d["手机"],"",ob)   #纯地址
     ob = ob.split()
-    ob = cpca.transform(ob)
+    ob = cpca.transform(ob)        #划分四级地址
     address = np.array(ob)
     address = address[0]
     i=0
@@ -58,6 +58,10 @@ def five_address(ob):          #ob为一个字符串
         elif address[i]=="街" and address[i+1]=="道" :
             d["地址"][3] = address[:(i+2)]
             d["地址"][4] = address[(i+2):]
+            break
+        elif address[i]=="街" :
+            d["地址"][3] = address[:(i+1)]
+            d["地址"][4] = address[(i+1):]
             break
         elif i>=(len(address)-1) :
             d["地址"][4] = address
