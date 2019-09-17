@@ -70,7 +70,6 @@ def five_address(ob):          #ob为一个字符串
 def seven_address(ob):
     ob = five_address(ob)
     d = ob["地址"][4]
-    print(d)
     i = 0
     while 1:                      #查找街|路|巷
         if(d[i]=="路"or d[i]=="巷" or d[i]=="街"):
