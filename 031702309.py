@@ -1,4 +1,5 @@
 #coding=utf-8
+# -*- coding: utf-8 -*-
 import json
 import string
 import re
@@ -11,9 +12,9 @@ def en_json(ob):              #编码为JSON类型
     return result
     
 def five_address(ob):          #ob为一个字符串
-    d = {"姓名": '',
-         "手机": '',
-         "地址":[ '','','','','']
+    d = {"姓名": "",
+         "手机": "",
+         "地址":[ "","","","",""]
          }
     ob = ob.split(",")            #分割名字
     d["姓名"] = ob[0]
@@ -68,20 +69,20 @@ def five_address(ob):          #ob为一个字符串
 
 def seven_address(ob):
     ob = five_address(ob)
-    d = ob['地址'][4]
+    d = ob["地址"][4]
     print(d)
     i = 0
     while 1:                      #查找街|路|巷
-        if(d[i]=="路"or d[i]=='巷' or d[i]=='街'):
-           ob['地址'][4] = d[:(i+1)]
-           ob['地址'].append(d[(i+1):])
+        if(d[i]=="路"or d[i]=="巷" or d[i]=="街"):
+           ob["地址"][4] = d[:(i+1)]
+           ob["地址"].append(d[(i+1):])
            break
         elif i>=len(d) :
            break
         else :
            i = i+1
     if(i>=len(d)):
-           ob['地址'].insert(4,'')
+           ob["地址"].insert(4,"")
     d = ob["地址"][5]
     i=0
     while 1:
@@ -94,7 +95,7 @@ def seven_address(ob):
         else :
            i = i+1
     if(i>=len(d)):
-           ob['地址'].insert(5,'')
+           ob['地址'].insert(5,"")
     return ob
 
 
